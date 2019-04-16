@@ -48,6 +48,8 @@ export default Component.extend({
 
 	saveAs: false,
 
+	src: 'http://clips.vorwaerts-gmbh.de/VfE_html5.mp4',
+
 	overrideOptions(obj, prefix) {
 		Object.keys(obj)
 			.forEach((key) => {
@@ -109,16 +111,16 @@ export default Component.extend({
 
 	onInit() { },
 
-	onChange() { },
-
 	onDestroy() { },
+
+	onFinished() { },
 
 	setEvents() {
 		const player = this.get('player');
 
 		player.on('finishRecord', async() => {
 			const media = await this.getMedia();
-			this.onChange(player, media);
+			this.onFinished(player, media);
 
 			let saveAs = this.get('saveAs');
 

@@ -3,7 +3,7 @@ language: node_js
 node_js:
   # we recommend testing addons with the same minimum supported node version as Ember CLI
   # so that your addon works for all apps
-  - "6"
+  - "8"
 
 sudo: false
 dist: trusty
@@ -12,19 +12,21 @@ addons:
   chrome: stable
 
 cache:
-  directories:
-    - $HOME/.npm
+  yarn: true
 
 env:
   global:
     # See https://git.io/vdao3 for details.
-    - JOBS=1
+    JOBS: 1
+    secure: fOTO/HpUT0xsfml9iXuEL9qBu0NVErcig6CmrS1DFv7f4x9/mYQMNzLUv5b6VBPqGHeFNHiGaUUza3Ufc5KpL7DOu/1y6TFQlSoM6MRRdIXb+50MObvkJ4wXwYJH7Zrb4g8RTaBOY9uU5XQkm/E6GWWF3NiYFoVzCYPNSgAALko1caoEX2hoJNXJSd0T4G+gxtxc2g08RGunBPLqIyy2avMRN4yq0WDN2NbBrztM01FA5RoOLPyX0hhzyIZ+45z34wKvZtu7rj9h1KbFOZOVFJWpHDa0bXxhF63ldxPINe2QMOSsOD22Czk1+IKyC+88gtkvUq7pGUaJK6YdVDRcW9G/DMHVy/IE2aFabrPDVgzrmeCoVKzATzt8nMfIMTTu9Unoa5fdohpJ0NPhYnPfVAGfJ+2MPITgP+x2X6M5+KgHCBdaIgwBVnZE9DTb1L9c/Eh50zeHHbfv9L+NVlbQFzMWNj+kKWMj0qwh6JPpSFiKaOvTK6XP+NSUc7euAZgqK6lwqS07pvcql4qvzbeRWyn/GZuRHOGvfkUNuvLee8dMKfpF3s1VQ6blHHqKB8qH2ifxawiztWgUkYxK0GFTk//ZopLzP90bLl0JiGlg517tp5V9eBOK5ZlPwsSOhD+wta9gCssPjK4i2H2IwLox7AqXegigBMdqIbXz9LaFVAY=
 
 branches:
   only:
     - master
     # npm version tags
     - /^v\d+\.\d+\.\d+/
+    # greenkeeper branches
+    - /^greenkeeper\/.*$/
 
 jobs:
   fail_fast: true
@@ -36,10 +38,17 @@ jobs:
 
     - stage: "Tests"
       name: "Tests"
+      install:
+        - yarn install --non-interactive
       script:
-        - npm run lint:hbs
-        - npm run lint:js
-        - npm test
+        - yarn lint:hbs
+        - yarn lint:js
+        - COVERAGE=true yarn test
+        - codecov
+
+    # - name: "Floating Dependencies"
+    #   script:
+    #     - yarn test
 
     # we recommend new addons test the current and previous LTS
     # as well as latest stable release (bonus points to beta/canary)
@@ -52,9 +61,36 @@ jobs:
     - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
 
 before_install:
-  - npm config set spin false
-  - npm install -g npm@4
-  - npm --version
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH=$HOME/.yarn/bin:$PATH
+  - yarn global add greenkeeper-lockfile@1
+  - yarn global add codecov
+
+install:
+  - yarn install --no-lockfile --non-interactive
 
 script:
   - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
+
+notifications:
+  webhooks:
+    urls:
+      - https://webhook.atomist.com/travis
+    on_success: always
+    on_failure: always
+    on_start: always
+    on_cancel: always
+    on_error: always
+  slack:
+    rooms:
+      secure: APO8OA7wQtg39xqhrJQZuQ+YDP5WovEw6F5xh1URpAldVrKQucf4RsUIfzvtuhTecAKrapoRSxrdDBj2KFf73qI66De4zeYFc/LnjLO3TMCOs74K9l2UEjOPem3ApKY7B7tIoF+C9OJ/G3An9cm6jzb1CtjiFd3lZOZ4xyo80WUnx2v/e7GMk5uOZazlykVMPdEAHoBauGx9jGDPCdyQim+O/PaoMrBoihV6bBSD3MUzf8lTw3NxOWg4fUC8fas5JW/4CJ1SLVqeReO3lmS3u72yxozmBzMS7wP9Bwbs23/XMtbF0xgUkLVt1GyOre2819zTjaV/u0C4Q1aB/mHJGKuX81oEnaBLES+d2ApYzKPx9n2sxWqWvtZ7Ra6NvGdhc6uR/+EsVhz61Et5DX2yjgWLfFrtnZe+zaFZCY+LAV4oUDVmAyfhGfWazD1n7rpCuY5r+WEZHmQP/8vYfcZaNrGAyHXZT4yxVo6lM8SRNgRuT2+qRqPzfQG51pVtxxz7UzSXxtw8W4sxOfY4nH/tVtAFU6SdnauDlAsEegHAUgkV4rLApMLE/AEk2d6BRotIEM9/tQofS3XLc8a6yT+o5/60ErBEZCTHUnVqPY+jhJHJ3LXNEVyFgK5Zz/3SAaD4AF9alq6t9Dw1ytqqJgl/iWyqpdXlJhDlb3K3GZXsAUY=
+
+deploy:
+  provider: npm
+  skip_cleanup: true
+  email: devo.tox.89@gmail.com
+  api_key:
+    secure: lJnj/00G0HbMF8aqyJNtrZNUDNbfc67WQhBqaZ6EdBm0xzG+VVabZzCz3pB6Spk/fCwrAeTRGjRgaF+2OclRBc+0wv/i2M0naGDebSTlh5vnmz3UQ9PwkghklhZZ88vFpJ5zfssnejVHbIHW8XbZCkvIrOidTqeLbbhw0ReFuyfmBKXVCntUIWXCTXdi+W42OhBd0wR8ixFHNHASFjr/Ky4U8XLdKicHEVL0rh+CjL5fOToh9pbwDXydw1P4QBZo+ne8kE8qoEg+CujOWnqJaOdafdUbqDBekOuWzuKxq0Fvoq8r/XY79AgP+yefaT7cu3V/7f7oF0cgtceVGDV+tU5uMPRlBrNxPT7ept0GlduTZqV5c6WTpV+/XgvtkkSWoe2pPMtZVvzR0cfxw8Dj6PAx6bnRYC5LjrkFXoucsx4E48o3wHdzR9EcPJpHQFTM7DUv/tgNAyCLmD8upw8O59HGm8yZAJ3d+Hied96/ea3KwykIf2iTzpAUTLDKlzqiF4eJF8taLI3lrp8BbhIpZN6W2wNfb1r49jP24ScumI++BWX2AYEw7Qt1tDiqq0LabCgcQ5dqjJurmK4CuMDTMG1QRhUGnF6BCHn6PBQwnFItSm9yw/vk+gSdaSuFYGdp1dSy7d1UVxWtVVo21zcQe7iMsjrW5mASoAjRt7Z3Yes=
+  on:
+    tags: true
+    repo: devotox/ember-cli-videojs-record

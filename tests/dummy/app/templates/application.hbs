@@ -1,3 +1,5 @@
 <h2 id="title">Ember CLI VideoJS Record</h2>
 
-{{videojs-record}}
+{{videojs-record
+  onFinished=(route-action 'onFinished')
+}}

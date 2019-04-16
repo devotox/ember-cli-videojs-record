@@ -48,7 +48,7 @@ export default Component.extend({
 
 	saveAs: false,
 
-	src: 'http://clips.vorwaerts-gmbh.de/VfE_html5.mp4',
+	src: undefined,
 
 	overrideOptions(obj, prefix) {
 		Object.keys(obj)

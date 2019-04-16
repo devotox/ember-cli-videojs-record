@@ -12,6 +12,7 @@ const {
 	URL,
 	Blob,
 	Promise,
+	document,
 	FileReader
 } = window;
 
@@ -39,12 +40,27 @@ const crypto = {
 
 		// write the ArrayBuffer to a blob, and you're done
 		return new Blob([buffer], { type: mimeString });
+	},
+	isDataURI(dataURI) {
+		let regex = /^\s*data:([a-z]+\/[a-z0-9\-+]+(;[a-z-]+=[a-z0-9-]+)?)?(;base64)?,[a-z0-9!$&',()*+;=\-._~:@/?%\s]*\s*$/i;
+		return dataURI && typeof dataURI === 'string' &&  !!dataURI.match(regex);
 	}
 };
 
+const optionsToChange = [
+	'pip',
+	'audio',
+	'video',
+	'image',
+	'screen',
+	'animation',
+	'maxLength',
+];
 
 export default Component.extend({
 	layout,
+
+	maxLength: 5,
 
 	saveAs: false,
 
@@ -64,7 +80,16 @@ export default Component.extend({
 		return obj;
 	},
 
-	options: computed(function() {
+
+	_shouldChangeOptions: observer(...optionsToChange, function() {// eslint-disable-line
+		this.destroy();
+
+		this.create();
+
+		once(this, 'didInsertElement');
+	}),
+
+	options: computed(...optionsToChange, function() {
 		const wavesurfer = this.overrideOptions({
 			src: 'live',
 			debug: false,
@@ -85,7 +110,6 @@ export default Component.extend({
 
 			audio: true,
 			video: true,
-
 			image: false,
 			screen: false,
 			animation: false,
@@ -136,11 +160,45 @@ export default Component.extend({
 	getMedia() {
 		const player = this.get('player');
 		const blob = player.recordedData;
+
+		if (crypto.isDataURI(blob)) {
+			return { base64: blob };
+		}
+
 		let mediaURL = crypto.createURL(blob);
 
 		return crypto.fromBlob(blob, 'data')
 			.then((base64) => ({ blob, base64, mediaURL }));
 
+	},
+
+	create() {
+		let s = this.get('src');
+		let $media = document.createElement('video');
+		let $source = document.createElement('source');
+
+		$source.src = this.get('src');
+		$source.type = this.get('srcType');
+		$media.className = "video-js vjs-default-skin";
+
+		s && $media.appendChild($source);
+		this.element.appendChild($media);
+	},
+
+	reset() {
+		let player = this.get('player');
+
+		player && player.record().reset();
+
+		return player;
+	},
+
+	destroy() {
+		let player = this.get('player');
+
+		player && player.record().destroy();
+
+		return player;
 	},
 
 	didInsertElement() {
@@ -163,22 +221,9 @@ export default Component.extend({
 
 		this._super(...arguments);
 
-		let player = this.get('player');
-
-		player && player.record().destroy();
+		const player = this.destroy();
 
 		this.onDestroy(player);
 	},
-
-	_shouldChange: observer( // eslint-disable-line
-		'maxLength',
-		function() {
-			let player = this.get('player');
-
-			player && player.record().destroy();
-
-			once(this, 'didInsertElement');
-		}
-	)
 
 });

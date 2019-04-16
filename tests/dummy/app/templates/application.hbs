@@ -1,5 +1,61 @@
 <h2 id="title">Ember CLI VideoJS Record</h2>
 
 {{videojs-record
+  pip=pip
+  audio=audio
+  video=video
+  image=image
+  screen=screen
+  animation=animation
+  maxLength=maxLength
   onFinished=(route-action 'onFinished')
 }}
+
+<br>
+
+<div>
+  <span>Image Capture: </span>
+  {{input type="checkbox" checked=image keypress=(mut image)}}
+</div>
+
+<br>
+
+<div>
+  <span>Audio Recording: </span>
+  {{input type="checkbox" checked=audio keypress=(mut audio)}}
+</div>
+
+<br>
+
+<div>
+  <span>Video Recording: </span>
+  {{input type="checkbox" checked=video keypress=(mut video)}}
+</div>
+
+<br>
+
+<div>
+  <span>Screen Recording: </span>
+  {{input type="checkbox" checked=screen keypress=(mut screen)}}
+</div>
+
+<br>
+
+<div>
+  <span>Animation Recording: </span>
+  {{input type="checkbox" checked=animation keypress=(mut animation)}}
+</div>
+
+<br>
+
+<div>
+  <span>Picture In Picture (PIP): </span>
+  {{input type="checkbox" checked=pip keypress=(mut pip)}}
+</div>
+
+<br>
+
+<div>
+  <span>Max Video Length: </span>
+  {{input type="number" value=maxLength change=(mut maxLength)}}
+</div>

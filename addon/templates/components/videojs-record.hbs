@@ -1,1 +1,5 @@
-<video class="video-js vjs-default-skin" playsinline src={{src}}></video>
+<video class="video-js vjs-default-skin" playsinline>
+  {{#if src}}
+    <source type={{srcType}} src={{src}}>
+  {{/if}}
+</video>

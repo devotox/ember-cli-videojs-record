@@ -188,7 +188,11 @@ export default Component.extend({
 	reset() {
 		let player = this.get('player');
 
-		player && player.record().reset();
+		try {
+			player.record().reset();
+		} catch(e) {
+			// eslint-disable-line
+		}
 
 		return player;
 	},
@@ -196,7 +200,11 @@ export default Component.extend({
 	destroy() {
 		let player = this.get('player');
 
-		player && player.record().destroy();
+		try {
+			player.record().destroy();
+		} catch(e) {
+			// eslint-disable-line
+		}
 
 		return player;
 	},

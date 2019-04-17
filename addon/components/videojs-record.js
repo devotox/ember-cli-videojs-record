@@ -66,6 +66,8 @@ export default Component.extend({
 
 	src: undefined,
 
+	srcType: 'video/webm',
+
 	overrideOptions(obj, prefix) {
 		Object.keys(obj)
 			.forEach((key) => {
@@ -179,7 +181,7 @@ export default Component.extend({
 
 		$source.src = this.get('src');
 		$source.type = this.get('srcType');
-		$media.className = "video-js vjs-default-skin";
+		$media.className = 'video-js vjs-default-skin';
 
 		s && $media.appendChild($source);
 		this.element.appendChild($media);

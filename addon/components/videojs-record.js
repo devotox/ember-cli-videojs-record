@@ -92,11 +92,7 @@ export default Component.extend({
 
 
 	_shouldChangeOptions: observer(...optionsToChange, function() {// eslint-disable-line
-		this.destroy();
-
-		this.create();
-
-		once(this, 'didInsertElement');
+		this.recreate();
 	}),
 
 	options: computed(...optionsToChange, function() {
@@ -195,6 +191,12 @@ export default Component.extend({
 
 	},
 
+	recreate() {
+		this.destroy();
+		this.create();
+		once(this, 'didInsertElement');
+	},
+
 	create() {
 		let s = this.get('src');
 		let $media = document.createElement('video');
@@ -208,28 +210,34 @@ export default Component.extend({
 		this.element.appendChild($media);
 	},
 
-	reset() {
-		let player = this.get('player');
-
-		try {
-			player.record().reset();
-		} catch(e) {
-			this.destroy();
-			this.create();
-			once(this, 'didInsertElement');
-		}
-
-		return player;
-	},
-
 	destroy() {
 		let player = this.get('player');
 
 		try {
 			player.record().destroy();
 		} catch(e) {
-			const field = this.element.querySelector('video, audio');
-			field && field.parentElement.removeChild(field);
+			try {
+				const field = this.element.querySelector('video, audio');
+				field && field.parentElement.removeChild(field);
+			} catch(e) {
+				// eslint-disable-line
+			}
+		}
+
+		return player;
+	},
+
+	reset() {
+		let player = this.get('player');
+
+		try {
+			player.record().reset();
+		} catch(e) {
+			try {
+				this.recreate();
+			} catch(e) {
+				// eslint-disable-line
+			}
 		}
 
 		return player;

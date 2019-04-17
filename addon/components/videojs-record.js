@@ -60,9 +60,19 @@ const optionsToChange = [
 export default Component.extend({
 	layout,
 
+	width: 640,
+
+	height: 360,
+
+	loop: true,
+
+	fluid: true,
+
 	maxLength: 5,
 
 	saveAs: false,
+
+	controls: true,
 
 	src: undefined,
 
@@ -118,14 +128,14 @@ export default Component.extend({
 		});
 
 		const options = {
-			width: 640,
-			height: 360,
+			plugins: { record },
 
-			loop: true,
-			fluid: true,
-			controls: true,
+			width: this.get('width'),
+			height: this.get('height'),
 
-			plugins: { record }
+			loop: this.get('loop'),
+			fluid: this.get('fluid'),
+			controls: this.get('controls')
 		};
 
 		record.audio

@@ -127,6 +127,16 @@ export default Component.extend({
 			animation: false,
 		});
 
+		const controlBar = {
+			pipToggle: false,
+			volumePanel: false,
+			deviceButton: false,
+			cameraButton: false,
+			recordToggle: false,
+			recordIndicator: false,
+			fullscreenToggle: false
+		};
+
 		const options = {
 			plugins: { record },
 
@@ -141,6 +151,9 @@ export default Component.extend({
 		record.audio
 			&& !record.video
 			&& (options.plugins.wavesurfer = wavesurfer);
+
+		!options.controls
+			&& (options.controlBar = controlBar);
 
 		return options;
 	}),

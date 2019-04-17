@@ -84,7 +84,7 @@ export default Component.extend({
 					: this.get(`${prefix}.${key}`);
 
 				crypto.exists(value)
-					&& (obj[key] = value);
+				&& (obj[key] = value);
 			});
 
 		return obj;
@@ -147,11 +147,11 @@ export default Component.extend({
 		};
 
 		record.audio
-			&& !record.video
-			&& (options.plugins.wavesurfer = wavesurfer);
+		&& !record.video
+		&& (options.plugins.wavesurfer = wavesurfer);
 
 		!options.controls
-			&& (options.controlBar = controlBar);
+		&& (options.controlBar = controlBar);
 
 		return options;
 	}),
@@ -214,7 +214,9 @@ export default Component.extend({
 		try {
 			player.record().reset();
 		} catch(e) {
-			// eslint-disable-line
+			this.destroy();
+			this.create();
+			once(this, 'didInsertElement');
 		}
 
 		return player;
@@ -226,7 +228,8 @@ export default Component.extend({
 		try {
 			player.record().destroy();
 		} catch(e) {
-			// eslint-disable-line
+			const field = this.element.querySelector('video, audio');
+			field && field.parentElement.removeChild(field);
 		}
 
 		return player;

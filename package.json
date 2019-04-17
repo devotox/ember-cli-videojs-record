@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-videojs-record",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Ëmber Wrapper for Video JS Record",
   "keywords": [
     "ember-addon",

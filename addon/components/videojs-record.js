@@ -54,7 +54,7 @@ const optionsToChange = [
 	'image',
 	'screen',
 	'animation',
-	'maxLength',
+	'maxLength'
 ];
 
 export default Component.extend({

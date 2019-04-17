@@ -12,7 +12,7 @@ ember-cli-videojs-record
 
 Simple Wrapper around [VideoJS Record](https://github.com/collab-project/videojs-record).
 
-This provides a service that can be used to record, play, and export video, audio, screenshare as a webm file, blob, or bas64 string.
+This provides a service that can be used to record, play, and export video, audio, screenshare as a webm file, blob, or base64 string.
 
 [DEMO](http://devotox.github.io/ember-cli-videojs-record)
 
@@ -30,7 +30,6 @@ Usage
 import Route from '@ember/routing/route';
 
 export default Route.extend({
-
 	actions: {
 		onFinished(player, media) {
 			console.log(player, media); // eslint-disable-line
@@ -41,7 +40,14 @@ export default Route.extend({
 
 ```handlebars
 {{videojs-record
-  onFinished=(route-action 'onFinished')
+  pip=pip
+  audio=audio
+  video=video
+  image=image
+  screen=screen
+  animation=animation
+  maxLength=maxLength
+  onFinished=(route-action "onFinished")
 }}
 ```
 

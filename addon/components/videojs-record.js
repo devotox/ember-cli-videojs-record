@@ -68,8 +68,6 @@ export default Component.extend({
 
 	fluid: true,
 
-	maxLength: 5,
-
 	saveAs: false,
 
 	controls: true,
@@ -124,7 +122,7 @@ export default Component.extend({
 			video: true,
 			image: false,
 			screen: false,
-			animation: false,
+			animation: false
 		});
 
 		const controlBar = {

@@ -84,7 +84,7 @@ export default Component.extend({
 					: this.get(`${prefix}.${key}`);
 
 				crypto.exists(value)
-				&& (obj[key] = value);
+					&& (obj[key] = value);
 			});
 
 		return obj;
@@ -143,11 +143,11 @@ export default Component.extend({
 		};
 
 		record.audio
-		&& !record.video
-		&& (options.plugins.wavesurfer = wavesurfer);
+			&& !record.video
+			&& (options.plugins.wavesurfer = wavesurfer);
 
 		!options.controls
-		&& (options.controlBar = controlBar);
+			&& (options.controlBar = controlBar);
 
 		return options;
 	}),

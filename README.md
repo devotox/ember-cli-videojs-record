@@ -3,8 +3,8 @@
 [![Coverage Status](https://codecov.io/gh/devotox/ember-cli-videojs-record/branch/master/graph/badge.svg)](https://codecov.io/gh/devotox/ember-cli-videojs-record)
 [![NPM Version](https://badge.fury.io/js/ember-cli-videojs-record.svg)](http://badge.fury.io/js/ember-cli-videojs-record)
 [![NPM Downloads](https://img.shields.io/npm/dm/ember-cli-videojs-record.svg)](https://www.npmjs.org/package/ember-cli-videojs-record)
-[![Dependency Status](https://david-dm.org/poetic/ember-cli-videojs-record.svg)](https://david-dm.org/poetic/ember-cli-videojs-record)
-[![DevDependency Status](https://david-dm.org/poetic/ember-cli-videojs-record/dev-status.svg)](https://david-dm.org/poetic/ember-cli-videojs-record#info=devDependencies)
+[![Dependency Status](https://david-dm.org/devotox/ember-cli-videojs-record.svg)](https://david-dm.org/devotox/ember-cli-videojs-record)
+[![DevDependency Status](https://david-dm.org/devotox/ember-cli-videojs-record/dev-status.svg)](https://david-dm.org/devotox/ember-cli-videojs-record#info=devDependencies)
 [![Greenkeeper](https://badges.greenkeeper.io/devotox/ember-cli-videojs-record.svg)](https://greenkeeper.io/)
 
 ember-cli-videojs-record

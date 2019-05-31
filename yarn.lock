@@ -9072,10 +9072,10 @@ videojs-font@3.1.0:
   resolved "https://registry.yarnpkg.com/videojs-font/-/videojs-font-3.1.0.tgz#ac33be9b517fe19299f61cccd2b3c7d75a1c6960"
   integrity sha512-rxB68SVgbHD+kSwoNWNCHicKJuR2ga3bGfvGxmB+8fupsiLbnyCwTBVtrZUq4bZnD64mrKP1DxHiutxwrs59pQ==
 
-videojs-record@3.7.0:
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/videojs-record/-/videojs-record-3.7.0.tgz#fa587ea6bc81afec2efce1ca7d54c24991b4041f"
-  integrity sha512-JapKaZT7G54cLkj3xL+EDwBldKrwxFHDvA02YjbgUfAOqhfR9u2zUt3gNLaMiVKSeRj5fICyMMEJm/EZF/aI4w==
+videojs-record@3.7.1:
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/videojs-record/-/videojs-record-3.7.1.tgz#dbee8c640e38168247f7783afdca34b12674941c"
+  integrity sha512-ZSyf8f/sSaC99lowhNYyZzn3UCytF6MnP4NS7MoiJkur8nOjHs4xyJ6PrSIdQbg5y6nkXEHAI5WT9L9B/Bg5BQ==
   dependencies:
     recordrtc ">=5.5.4"
     video.js ">=6.2.7"

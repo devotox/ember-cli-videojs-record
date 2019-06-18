@@ -4949,13 +4949,21 @@ global-prefix@^1.0.1:
     is-windows "^1.0.1"
     which "^1.2.14"
 
-global@4.3.2, global@^4.3.0, global@^4.3.1, global@^4.3.2, global@~4.3.0:
+global@4.3.2, global@~4.3.0:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/global/-/global-4.3.2.tgz#e76989268a6c74c38908b1305b10fc0e394e9d0f"
   integrity sha1-52mJJopsdMOJCLEwWxD8DjlOnQ8=
   dependencies:
     min-document "^2.19.0"
     process "~0.5.1"
+
+global@^4.3.0, global@^4.3.1, global@^4.3.2:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/global/-/global-4.4.0.tgz#3e7b105179006a323ed71aafca3e9c57a5cc6406"
+  integrity sha512-wv/LAoHdRE3BeTGz53FAamhGlPLhlssK45usmGFThIi4XqnBmjKQ16u+RNbP7WvigRZDxUsM0J3gcQ5yicaL0w==
+  dependencies:
+    min-document "^2.19.0"
+    process "^0.11.10"
 
 globals@^11.1.0, globals@^11.7.0:
   version "11.12.0"
@@ -9053,9 +9061,9 @@ vary@~1.1.2:
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
 video.js@>=6.0.0, video.js@>=6.2.7, "video.js@^6.8.0 || ^7.0.0":
-  version "7.5.4"
-  resolved "https://registry.yarnpkg.com/video.js/-/video.js-7.5.4.tgz#7c76d44123be48f98333ab50b19d7683bfa8aba6"
-  integrity sha512-+U3FyLVFbnJdEC6TVMv8U75c8VM00vmVY8TSfFthnvo7/6rz3LFg2Pd3TTGNbV2pEmBhkLLYO+dvmqMNUyc2ZA==
+  version "7.5.5"
+  resolved "https://registry.yarnpkg.com/video.js/-/video.js-7.5.5.tgz#322c321cb1e8ac55007f61f75f5dd928548fd4d2"
+  integrity sha512-25eZciVCBJrJe0lhr5hUT9fQfGSBIBek9FoFfFgJEyXDmPwRMR3NCxYarW+qpPAC1Re8V6MSgaCg1oIbZdqBpA==
   dependencies:
     "@babel/runtime" "^7.2.0"
     "@videojs/http-streaming" "1.9.3"

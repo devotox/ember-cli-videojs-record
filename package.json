@@ -40,7 +40,7 @@
   "dependencies": {
     "ember-cli-babel": "7.10.0",
     "ember-cli-htmlbars": "3.1.0",
-    "videojs-record": "3.7.1"
+    "videojs-record": "3.8.0"
   },
   "devDependencies": {
     "@ember/optional-features": "0.7.0",

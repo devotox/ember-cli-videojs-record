@@ -7644,7 +7644,7 @@ recast@^0.11.3:
     private "~0.1.5"
     source-map "~0.5.0"
 
-recordrtc@>=5.5.4:
+recordrtc@>=5.5.8:
   version "5.5.8"
   resolved "https://registry.yarnpkg.com/recordrtc/-/recordrtc-5.5.8.tgz#46eaf3500651701fda13a3d5826270270f9178a9"
   integrity sha512-+BzbllHyL6Q8gAuaqjO8RdqofL4C6yI670hicMaUW/0dDsKHeKyz0S4M+n7sHnr4dP0LGWqcod6gazRMtXob6A==
@@ -8045,7 +8045,12 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
-sdp@^2.6.0, sdp@^2.9.0:
+sdp@^2.10.0:
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/sdp/-/sdp-2.10.0.tgz#643fff1a43cdba54a739c7b202f56bd854474af2"
+  integrity sha512-H+VjfyQpRz9GezhshJmkXTtCAT9/2g9az3GFDPYfGOz0eAOQU1fCrL3S9Dq/eUT9FtOyLi/czdR9PzK3fKUYOQ==
+
+sdp@^2.6.0:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/sdp/-/sdp-2.9.0.tgz#2eed2d9c0b26c81ff87593107895c68d6fb9a0a6"
   integrity sha512-XAVZQO4qsfzVTHorF49zCpkdxiGmPNjA8ps8RcJGtGP3QJ/A8I9/SVg/QnkAFDMXIyGbHZBBFwYBw6WdnhT96w==
@@ -9116,15 +9121,15 @@ videojs-font@3.1.0:
   resolved "https://registry.yarnpkg.com/videojs-font/-/videojs-font-3.1.0.tgz#ac33be9b517fe19299f61cccd2b3c7d75a1c6960"
   integrity sha512-rxB68SVgbHD+kSwoNWNCHicKJuR2ga3bGfvGxmB+8fupsiLbnyCwTBVtrZUq4bZnD64mrKP1DxHiutxwrs59pQ==
 
-videojs-record@3.7.1:
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/videojs-record/-/videojs-record-3.7.1.tgz#dbee8c640e38168247f7783afdca34b12674941c"
-  integrity sha512-ZSyf8f/sSaC99lowhNYyZzn3UCytF6MnP4NS7MoiJkur8nOjHs4xyJ6PrSIdQbg5y6nkXEHAI5WT9L9B/Bg5BQ==
+videojs-record@3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/videojs-record/-/videojs-record-3.8.0.tgz#e98227847c13227e436e00e052b3826341f41d4c"
+  integrity sha512-yS19jnnULWC5KO7Klp2hTG0rl16baxaWh71t7F4d/Cep7a3PcwzDwlluUQTFBEROYIIFmNkvF76CcmVhgKV9Rw==
   dependencies:
-    recordrtc ">=5.5.4"
+    recordrtc ">=5.5.8"
     video.js ">=6.2.7"
-    videojs-wavesurfer ">=2.8.0"
-    webrtc-adapter ">=7.2.3"
+    videojs-wavesurfer ">=2.9.0"
+    webrtc-adapter ">=7.2.8"
 
 videojs-vtt.js@0.14.1:
   version "0.14.1"
@@ -9133,13 +9138,13 @@ videojs-vtt.js@0.14.1:
   dependencies:
     global "^4.3.1"
 
-videojs-wavesurfer@>=2.8.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/videojs-wavesurfer/-/videojs-wavesurfer-2.8.0.tgz#e489dcc3f08964a57a864aa388a0361fe3556c37"
-  integrity sha512-sfwURo/njjnKs5m5pnShsfNfSQOGxTMzCLeSuzTA4293nDivU8ESrEH68qLgTxZLq9Cqv2AEvte/h7ogj5vzBA==
+videojs-wavesurfer@>=2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/videojs-wavesurfer/-/videojs-wavesurfer-2.9.0.tgz#75c38873bded85feda99c8bb45ba705394fcc33e"
+  integrity sha512-IOb0D6cxNXoeZkd6N0ckUTiKj3v/l71KGTtj10FfMDpPGqhwJe2/N32MC3ukc2tDQrTKfz9RZcl6Hq419kWKZQ==
   dependencies:
     video.js ">=6.0.0"
-    wavesurfer.js ">=2.2.1"
+    wavesurfer.js ">=3.0.0"
 
 vm-browserify@^1.0.1:
   version "1.1.0"
@@ -9198,10 +9203,10 @@ watchpack@^1.5.0:
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
 
-wavesurfer.js@>=2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/wavesurfer.js/-/wavesurfer.js-2.2.1.tgz#066ccd85d1ce70b64bd5a5b491e2c797645a6973"
-  integrity sha512-DMrgRN04dUK1YA4MDIMKx1EcIab7wtNcf2OE1Gn3ASnob4JMK3pwph/29ioph8UiHykMTloJIsPurvlC9NZVOQ==
+wavesurfer.js@>=3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/wavesurfer.js/-/wavesurfer.js-3.0.0.tgz#35f36d76d59c749dca453cf4e10ee0ec49f454f8"
+  integrity sha512-DANu206c6gb9pSUbYFevsSiXMy8+Ri+CNtqm0UsouUdsn9fVQRtYs8uxzBtXK+rUPlIc6FlO54DU8uWeW3lDzw==
 
 wcwidth@^1.0.1:
   version "1.0.1"
@@ -9248,13 +9253,13 @@ webpack@~4.28:
     watchpack "^1.5.0"
     webpack-sources "^1.3.0"
 
-webrtc-adapter@>=7.2.3:
-  version "7.2.4"
-  resolved "https://registry.yarnpkg.com/webrtc-adapter/-/webrtc-adapter-7.2.4.tgz#7fdb4aba949f69cb74ceaf4f72e5cce2f45c6374"
-  integrity sha512-i3Qg8gFY/XSpr9c8WtkXH50phJ2woXad5wdtF0uIZ5P/WHCGIRvElGOYhHRuA26+t0c+9/GsCv9L1/PGqXXu/A==
+webrtc-adapter@>=7.2.8:
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/webrtc-adapter/-/webrtc-adapter-7.3.0.tgz#a65e18aad42759bab6ced7f8cfff11b051321e2a"
+  integrity sha512-pKcwt6IR6RLCD6jlcdOOi88iVwdzppHlkOhtgTSuZHtYTxdD09t5fA1Di7GJU7je8oHcCBlNfb7zwBsetERnmQ==
   dependencies:
     rtcpeerconnection-shim "^1.2.15"
-    sdp "^2.9.0"
+    sdp "^2.10.0"
 
 websocket-driver@>=0.5.1:
   version "0.7.3"

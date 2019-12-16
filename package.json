@@ -43,7 +43,7 @@
     "videojs-record": "3.8.0"
   },
   "devDependencies": {
-    "@ember/optional-features": "1.1.0",
+    "@ember/optional-features": "1.2.0",
     "broccoli-asset-rev": "3.0.0",
     "ember-auto-import": "1.5.3",
     "ember-cli": "3.14.0",

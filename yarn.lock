@@ -8762,9 +8762,9 @@ schema-utils@^1.0.0:
     ajv-keywords "^3.1.0"
 
 sdp@^2.10.0, sdp@^2.6.0:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/sdp/-/sdp-2.11.0.tgz#8debe3eedb7979945ab3ce353012dd21c8ecbc11"
-  integrity sha512-3goRWORJWhZyNQWsAH3X0Z4pb4MhZFBRT/665m+LzYmmp2E9w2ifTbPl1J2EejOSrTJ10Kr3obY0yHZEN11Iaw==
+  version "2.11.1"
+  resolved "https://registry.yarnpkg.com/sdp/-/sdp-2.11.1.tgz#1de6900a2d4566767d61201864bc2e926970a394"
+  integrity sha512-PM7Pm0QK3OwFEAW/DzJNsu0IAEHasBOexZH0A/rQhM8eqKgPFOLvPOtKxQf+VzwBefG2xx3jURXjXVxajaNw+A==
 
 semver@7.0.0:
   version "7.0.0"

@@ -10120,15 +10120,15 @@ videojs-font@3.2.0:
   resolved "https://registry.yarnpkg.com/videojs-font/-/videojs-font-3.2.0.tgz#212c9d3f4e4ec3fa7345167d64316add35e92232"
   integrity sha512-g8vHMKK2/JGorSfqAZQUmYYNnXmfec4MLhwtEFS+mMs2IDY398GLysy6BH6K+aS1KMNu/xWZ8Sue/X/mdQPliA==
 
-videojs-record@3.8.0:
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/videojs-record/-/videojs-record-3.8.0.tgz#e98227847c13227e436e00e052b3826341f41d4c"
-  integrity sha512-yS19jnnULWC5KO7Klp2hTG0rl16baxaWh71t7F4d/Cep7a3PcwzDwlluUQTFBEROYIIFmNkvF76CcmVhgKV9Rw==
+videojs-record@3.9.0:
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/videojs-record/-/videojs-record-3.9.0.tgz#86330b2cdfbd6cecfa71ee6eff8ec5a9d3cf6c08"
+  integrity sha512-0JU5lWMguSk1QNooaDav3BEGZzRXQNlfn2/UvKQQVHKn9fWVbJAb3j+fAuQmSsB3ukbyAs19w7qXYERNKvmu+w==
   dependencies:
     recordrtc ">=5.5.8"
     video.js ">=6.2.7"
-    videojs-wavesurfer ">=2.9.0"
-    webrtc-adapter ">=7.2.8"
+    videojs-wavesurfer ">=2.11.0 <3"
+    webrtc-adapter ">=7.3.0"
 
 videojs-vtt.js@^0.14.1:
   version "0.14.1"
@@ -10137,7 +10137,7 @@ videojs-vtt.js@^0.14.1:
   dependencies:
     global "^4.3.1"
 
-videojs-wavesurfer@>=2.9.0:
+"videojs-wavesurfer@>=2.11.0 <3":
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/videojs-wavesurfer/-/videojs-wavesurfer-2.11.0.tgz#496d59b6f575b3dde8bae32d3e5de519e887cd1e"
   integrity sha512-qco1HoeX5oLJNKA0xe+s8fLMKo9ERfjLS1AvYSkuH3UmlT4MbBBQ8u6+TeRFQ4FEFXpY3ZphJzg1WFh0nNELLA==
@@ -10283,7 +10283,7 @@ webpack@~4.28:
     watchpack "^1.5.0"
     webpack-sources "^1.3.0"
 
-webrtc-adapter@>=7.2.8:
+webrtc-adapter@>=7.3.0:
   version "7.3.0"
   resolved "https://registry.yarnpkg.com/webrtc-adapter/-/webrtc-adapter-7.3.0.tgz#a65e18aad42759bab6ced7f8cfff11b051321e2a"
   integrity sha512-pKcwt6IR6RLCD6jlcdOOi88iVwdzppHlkOhtgTSuZHtYTxdD09t5fA1Di7GJU7je8oHcCBlNfb7zwBsetERnmQ==
